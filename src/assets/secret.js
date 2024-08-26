@@ -1,5 +1,5 @@
 import Cookies  from 'js-cookie';
-const apiUrl = "http://localhost:4000";
+const apiUrl = "https://withme-backend.onrender.com";
 const token = Cookies.get("token")
 export const AuthToken ={
     headers:{

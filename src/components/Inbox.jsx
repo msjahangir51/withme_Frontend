@@ -67,35 +67,11 @@ function Inbox() {
     <div className='h-screen w-full p-4 overflow-hidden'>
         {/* massenger nav  */}
         <div className='flex items-center border-b-2 border-zinc-50/20 p-2'>
-            {!SelectedUser.profileImage? <img className='w-[2.4rem] rounded-full' src={`http://localhost:4000/${SelectedUser.gender}.png`} alt="" />:<img className='w-[2.4rem] rounded-full' src={`http://localhost:4000/${SelectedUser.profileImage}`} alt="" />}
+            {!SelectedUser.profileImage? <img className='w-[2.4rem] rounded-full' src={`https://withme-backend.onrender.com/${SelectedUser.gender}.png`} alt="" />:<img className='w-[2.4rem] rounded-full' src={`https://withme-backend.onrender.com/${SelectedUser.profileImage}`} alt="" />}
         <h1 className='text-white ml-3'>{SelectedUser.fullName}</h1>
         </div>
 
         {/* message  */}
-
-        
-      {/* <div className='flex flex-col space-y-2 max-h-[calc(100vh-4rem)] overflow-y-auto'>
-
-{messages.map((msg, index) => (
-    <div
-      key={index}
-      className={`flex items-center ${msg.sender === user._id ? 'justify-end' : 'justify-start'}`}
-    >
-      {msg.sender !== user._id && (
-        <img
-          className="w-[2rem] rounded-full mr-2"
-          src={`http://localhost:4000/${SelectedUser.profileImage || SelectedUser.gender}.png`}
-          alt="Profile"
-        />
-      )}
-      <div className={`p-2 rounded-lg ${msg.sender === user._id ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'}`}>
-        <strong>{msg.sender === user._id ? 'You' : SelectedUser.name}</strong>: {msg.message}
-      </div>
-    </div>
-  ))}
-      <div ref={messagesEndRef} />
-      </div> */}
-
 
 <div className="flex flex-col space-y-2 max-h-[calc(100vh-4rem)] overflow-y-auto">
   {messages.map((msg, index) => (
@@ -106,7 +82,7 @@ function Inbox() {
       {msg.sender !== user._id && (
         <img
           className="w-[2rem] rounded-full mr-2"
-          src={`http://localhost:4000/${SelectedUser.profileImage || SelectedUser.gender}.png`}
+          src={`https://withme-backend.onrender.com/${SelectedUser.profileImage || SelectedUser.gender}.png`}
           alt="Profile"
         />
       )}
