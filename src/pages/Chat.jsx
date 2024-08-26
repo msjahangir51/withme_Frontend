@@ -45,7 +45,7 @@ function Chat() {
         </div>
         {/* profile  */}
         <div className='absolute left-3 top-7 p-1 rounded-lg shadow-round flex items-center justify-between w-fit'>
-            <button onClick={()=>SetClickRoute("profile")}>{!user.profileImage? <img className='w-[2.4rem] rounded-full' src={`http://localhost:4000/${user.gender}.png`} alt="" />:<img className='w-[2.4rem] rounded-full' src={`http://localhost:4000/${user.profileImage}`} alt="" />}</button>
+            <button onClick={()=>SetClickRoute("profile")}>{!user.profileImage? <img className='w-[2.4rem] rounded-full' src={`https://withme-backend.onrender.com/${user.gender}.png`} alt="" />:<img className='w-[2.4rem] rounded-full' src={`https://withme-backend.onrender.com/${user.profileImage}`} alt="" />}</button>
         </div>
         {
             showSearch?
@@ -54,7 +54,7 @@ function Chat() {
                     searchdata ? searchdata.map((user)=>{
                         return(
                             <div className='flex justify-start relative bg-[#4444] p-2 rounded-md' key={user._id}>
-                               {!user.profileImage? <img className='w-[2.4rem] rounded-full' src={`http://localhost:4000/${user.gender}.png`} alt="" />:<img className='w-[2.4rem] rounded-full' src={`http://localhost:4000/${user.profileImage}`} alt="" />}
+                               {!user.profileImage? <img className='w-[2.4rem] rounded-full' src={`https://withme-backend.onrender.com/${user.gender}.png`} alt="" />:<img className='w-[2.4rem] rounded-full' src={`https://withme-backend.onrender.com/${user.profileImage}`} alt="" />}
                                <div className='ml-1'>
                                 <h1>{user.username}</h1>
                                 <p className='text-[10px]'>{user.fullName}</p>
