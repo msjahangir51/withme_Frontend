@@ -60,10 +60,10 @@ function Profile() {
 
 
       {/* profile  */}
-      <label htmlFor="profile" className='block w-[7rem] h-[7rem] mx-auto mt-5 cursor-pointer relative' title='upload image'>
+      <label htmlFor="profile" className='block w-[7rem] h-[7rem] mx-auto mt-5 cursor-pointer relative rounded-full overflow-hidden' title='upload image'>
         <input type="file" onChange={(e)=> SetImage(e.target.files[0])} accept="image/*" className="hidden" id="profile" />
-      {!user.profileImage? <img className='w-full rounded-full object-cover' draggable="false" src={`${apiUrl}/${user.gender}.png`} alt="" />:<img className='w-full rounded-full object-cover' src={`${apiUrl}/${user.profileImage}`} draggable="false" alt="" />}
-      <MdCameraEnhance className='absolute bottom-1 right-3 text-white text-2xl'/>
+      {!user.profileImage? <img className='w-full object-cover' draggable="false" src={`${apiUrl}/${user.gender}.png`} alt="" />:<img className='w-full object-cover' src={`${apiUrl}/${user.profileImage}`} draggable="false" alt="" />}
+      <MdCameraEnhance className='absolute bottom-4 right-2 text-white text-2xl'/>
       </label>
 
 

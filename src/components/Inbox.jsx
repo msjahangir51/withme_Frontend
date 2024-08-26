@@ -64,46 +64,59 @@ function Inbox() {
 
 
   return ( 
-    <div className='h-screen w-full p-4 overflow-hidden'>
+    <div className='h-screen w-full'>
         {/* massenger nav  */}
         <div className='flex items-center border-b-2 border-zinc-50/20 p-2'>
-            {!SelectedUser.profileImage? <img className='w-[2.4rem] rounded-full' src={`https://withme-backend.onrender.com/${SelectedUser.gender}.png`} alt="" />:<img className='w-[2.4rem] rounded-full' src={`https://withme-backend.onrender.com/${SelectedUser.profileImage}`} alt="" />}
+        <div className='w-[2.4rem] h-[2.4rem] rounded-full overflow-hidden'>
+            {!SelectedUser.profileImage? <img className='w-full object-cover' src={`https://withme-backend.onrender.com/${SelectedUser.gender}.png`} alt="" />:<img className='w-[2.4rem] rounded-full' src={`https://withme-backend.onrender.com/${SelectedUser.profileImage}`} alt="" />}
+        </div>
         <h1 className='text-white ml-3'>{SelectedUser.fullName}</h1>
         </div>
 
         {/* message  */}
 
-<div className="flex flex-col space-y-2 max-h-[calc(100vh-4rem)] overflow-y-auto">
-  {messages.map((msg, index) => (
-    <div
-      key={index}
-      className={`flex items-start ${msg.sender === user._id ? 'justify-end' : 'justify-start'}`}
-      >
-      {msg.sender !== user._id && (
-        <img
-          className="w-[2rem] rounded-full mr-2"
-          src={`https://withme-backend.onrender.com/${SelectedUser.profileImage || SelectedUser.gender}.png`}
-          alt="Profile"
-        />
-      )}
-      <div className={`p-2 rounded-lg max-w-[75%] bg-blue-500 text-white break-words ${msg.sender === user._id ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'}`}>
-        <strong>{msg.sender === user._id ? 'You' : SelectedUser.name}</strong>: 
-        <span className="break-words overflow-wrap-anywhere">{msg.message}</span>
+
+
+      <div className="flex flex-col space-y-2 max-h-[calc(100vh-4rem)] min-h-[calc(100vh-6.4rem)] overflow-y-auto px-3">
+        {messages.map((msg, index) => (
+          <div
+            key={index}
+            className={`flex items-start ${msg.sender === user._id ? 'justify-end' : 'justify-start'}`}
+            >
+            {msg.sender !== user._id && (
+              <div className='w-[2.4rem] h-[2.4rem] rounded-full overflow-hidden'>
+                <img
+                  className="w-full object-cover mr-2"
+                  src={`https://withme-backend.onrender.com/${SelectedUser.profileImage || SelectedUser.gender+".png"}`}
+                  alt="Profile"
+                />
+              </div>
+            )}
+            {/* <div className={`p-2 rounded-lg max-w-[75%] bg-blue-500 text-white break-words ${msg.sender === user._id ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'}`}>
+              <strong>{msg.sender === user._id ? 'You' : SelectedUser.name}</strong>: 
+              <span className="break-words overflow-wrap-anywhere">{msg.message}</span>
+            </div> */}
+
+
+            <div className={`p-2 rounded-lg max-w-[75%] ${msg.sender === user._id ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'} break-words`}>
+              <strong>{msg.sender === user._id ? 'You' : SelectedUser.name}</strong>: 
+              <span className="break-words overflow-wrap-anywhere">{msg.message}</span>
+            </div>
+
+          </div>
+        ))}
+      <div ref={messagesEndRef} />
       </div>
-    </div>
-  ))}
-<div ref={messagesEndRef} />
-</div>
 
 
-
-
+        {/* send message  */}
       <div className='bg-zinc-700 px-3 w-full flex h-[2.5rem] items-center justify-between'>
         <input value={message}
         onChange={(e) => setMessage(e.target.value)}
         onKeyPress={(e) => e.key === 'Enter' && sendMessage()} className='w-[80%] bg-zinc-600 py-1 text-white placeholder:text-white border outline-none px-2 rounded-sm' type="text" placeholder='message...' />
         <button onClick={sendMessage} className='text-white'><IoSend/></button>
       </div>
+
     </div>
   )
 }
